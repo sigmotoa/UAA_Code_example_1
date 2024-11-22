@@ -14,5 +14,13 @@
       <li>{{i}}</li>
       {% endfor %}
     </ul>
+
+    <h2>Add todo</h2>
+    <form action="/todo" method="post">
+      <input type="text" name="id" id="id" />
+      <input type="text" name="descripcion" id="descripcion" />
+      <input type="text" name="status" id="status" />
+      <button type="submit">Add todo</button>
+    </form>
   </body>
 </html>
