@@ -1,6 +1,7 @@
 from fastapi import APIRouter,Path,Request
 from model import Todo
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import RedirectResponse
 
 
 todo_list:Todo = []
@@ -13,9 +14,11 @@ def home(request:Request):
     return templates.TemplateResponse("todo.html",{"request":request})
 
 @todo.post("/todo")
-def add_todo(todo:Todo):
+async def add_todo(request:Request):
+    todo = await request.form()
     todo_list.append(todo)
-    return {"message":"Added"}
+    return RedirectResponse("/todo", 303)
+    #{"message":"Added"}
 
 
 @todo.get("/todo")
