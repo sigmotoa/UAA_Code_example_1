@@ -1,9 +1,16 @@
-from fastapi import APIRouter,Path
+from fastapi import APIRouter,Path,Request
 from model import Todo
+from fastapi.templating import Jinja2Templates
+
 
 todo_list:Todo = []
 
 todo = APIRouter()
+templates = Jinja2Templates(directory="templates/")
+
+@todo.get("/uaa")
+def home(request:Request):
+    return templates.TemplateResponse("todo.html",{"request":request})
 
 @todo.post("/todo")
 def add_todo(todo:Todo):
@@ -12,8 +19,8 @@ def add_todo(todo:Todo):
 
 
 @todo.get("/todo")
-def show_todos():
-    return {"todos":todo_list}
+def show_todos(request:Request):
+    return templates.TemplateResponse("todo.html", {"request":request,"todos":todo_list})
 
 
 @todo.get("/todo/{todo_id}")
