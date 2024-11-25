@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from todo import todo
+from pokemon import pokemon
 
 app = FastAPI()
 
@@ -13,3 +14,4 @@ def greeting(name:str):
     return "Hello "+name
 
 app.include_router(todo)
+app.include_router(pokemon)

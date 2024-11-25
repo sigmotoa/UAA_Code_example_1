@@ -8,3 +8,8 @@ class Item(BaseModel):
 class Todo(BaseModel):
     id:int
     item:Item
+
+class Pokemon(BaseModel):
+    id:int
+    name:str
+    img:str
