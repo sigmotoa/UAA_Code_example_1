@@ -1,0 +1,15 @@
+{% include 'header.html' %}
+
+<h3>{{text}}</h3>
+
+<ol>
+  {% for pokemon in pokemons %}
+  <li>
+    <h4>{{pokemon.name}}</h4>
+    <img src="{{ pokemon.img }}" alt="{{pokemon.name}}" />
+    <h5>{{pokemon.id}}</h5>
+  </li>
+  {% endfor %}
+</ol>
+
+{% include 'footer.html' %}

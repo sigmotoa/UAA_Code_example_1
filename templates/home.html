@@ -1,0 +1,16 @@
+{% include 'header.html' %}
+<h1>{{text}}</h1>
+<ul>
+  {% for i in images%}
+  <li>
+    <a href="pokemon2">
+      <img
+        src="{{'/static/'+i}}"
+        alt="{{i}}"
+        style="width: 35vw; min-width: 230px"
+      />
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% include 'footer.html' %}

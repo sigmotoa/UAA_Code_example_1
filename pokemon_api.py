@@ -29,7 +29,7 @@ def pokemon_details():
         petition=f"{BASE_URL}/{pokemon}"
         response = requests.get(petition)
         pokemon_data = response.json()
-        list_total.append([Pokemon(id=pokemon_data["id"],name=pokemon_data["name"],
-        img=pokemon_data["sprites"]["other"]["dream_world"]["front_default"])])
+        list_total.append(Pokemon(id=pokemon_data["id"],name=pokemon_data["name"],
+        img=pokemon_data["sprites"]["other"]["dream_world"]["front_default"]))
 
     return (list_total)        
