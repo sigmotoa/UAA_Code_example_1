@@ -24,3 +24,8 @@ def show_pokemon_detail(request:Request):
     print(pokemons)
     return templates.TemplateResponse("pokemon.html",{"request":request, "title":"pokemon sigmotoa","text":"Un texto muy extenso", "pokemons":pokemons})
     #(pokemon_details())
+
+@pokemon.get("/detail")
+def show_detail_pokemon(request:Request):
+    pokemons = pokemon_details()
+    return templates.TemplateResponse("elementos.html", {"request":request, "title":"Pokemon Detail", "pokemons":pokemons})

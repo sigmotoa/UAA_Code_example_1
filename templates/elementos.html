@@ -1,0 +1,12 @@
+{% include 'header.html' %} {% include 'navbar.html' %}
+<h1>Usando una card</h1>
+{% for i in pokemons %}
+<div class="card" style="width: 18rem">
+  <img src="{{i.img}}" class="card-img-top" alt="{{i.name}}" />
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{% endfor %} {% include 'footer.html'%}
